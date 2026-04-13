@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIFTRAvault — AI Gift Recommendations</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+</head>
+<body>
+
+<div class="bg-texture"></div>
+<div class="particles"></div>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <div class="brand-icon">🎁</div>
+    <span class="brand-name">GIFTRAvault</span>
+  </div>
+  <div class="nav-links">
+    <a href="home.html">Home</a>
+    <a href="details.html">Find Gift</a>
+    <a href="products.html" class="active">Products</a>
+  </div>
+  <div class="nav-actions">
+    <button class="btn-ghost" onclick="window.location.href='details.html'" style="font-size:0.78rem">
+      🔄 New Search
+    </button>
+  </div>
+</nav>
+
+<!-- ── PRODUCT DETAIL MODAL ── -->
+<div class="modal-overlay" id="productModal">
+  <button class="modal-close" onclick="document.getElementById('productModal').classList.remove('open')">✕</button>
+  <div class="product-modal">
+    <div class="modal-grid">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ── PAGE CONTENT ── -->
+<div class="products-page">
+
+  <!-- Header -->
+  <div class="products-header">
+    <div>
+      <div class="section-eyebrow">✦ Flash AI Recommendations</div>
+      <h1 class="section-title" style="margin-bottom:8px">
+        Perfect Gifts <em id="occasionLabel">for Every Occasion</em>
+      </h1>
+      <p id="recipientLabel" style="font-family:var(--font-serif);font-size:1rem;color:var(--text-light)">
+        Personalised by AI · Prices compared live
+      </p>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <button class="btn-ghost" data-back="details.html">← Edit Preferences</button>
+      <button class="btn-primary" onclick="window.location.href='details.html'" style="padding:11px 22px;font-size:0.78rem">
+        🔄 New Search
+      </button>
+    </div>
+  </div>
+
+  <!-- AI Summary Card -->
+  <div class="ai-summary-card" id="aiSummaryCard" style="display:none">
+    <div class="ai-avatar">🤖</div>
+    <div>
+      <div style="font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#7C3AED;margin-bottom:6px">✦ Flash AI Analysis</div>
+      <div class="ai-thinking">
+        Analysing your preferences and finding the best gift recommendations…
+      </div>
+    </div>
+  </div>
+
+  <!-- Price Analysis Note -->
+  <div id="priceAnalysis" style="display:none;padding:12px 18px;background:rgba(5,150,105,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-md);font-size:0.85rem;color:#6EE7B7;margin-bottom:24px"></div>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar" id="filterBar">
+    <span style="font-size:0.78rem;color:var(--text-light);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-right:4px">Filter:</span>
+    <button class="filter-pill active" data-filter="all">✦ All Gifts</button>
+    <button class="filter-pill" data-filter="luxury">👑 Luxury</button>
+    <button class="filter-pill" data-filter="sentimental">💌 Sentimental</button>
+    <button class="filter-pill" data-filter="experience">🎪 Experiences</button>
+    <button class="filter-pill" data-filter="food">🍫 Food & Drink</button>
+    <button class="filter-pill" data-filter="wellness">🌿 Wellness</button>
+    <button class="filter-pill" data-filter="casual">😊 Casual</button>
+  </div>
+
+  <!-- Info Bar -->
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px">
+    <div style="font-size:0.82rem;color:var(--text-light)">
+      <span style="color:var(--gold)">✦</span> Prices compared across
+      <strong style="color:var(--cream)">Amazon, Flipkart, Nykaa, Myntra, CaratLane, FirstCry, FNP, EazyDiner & more</strong>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:0.75rem;color:var(--text-light)">
+      <span style="width:8px;height:8px;background:#10B981;border-radius:50%;display:inline-block"></span>
+      Live Price Comparison Active
+    </div>
+  </div>
+
+  <!-- Occasion Quick Switch -->
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px" id="occasionSwitch">
+    <span style="font-size:0.78rem;color:var(--text-light);display:flex;align-items:center;font-weight:600;letter-spacing:0.08em;text-transform:uppercase">Switch Occasion:</span>
+    <button class="btn-ghost" style="font-size:0.75rem;padding:7px 14px" onclick="switchOccasion('birthday')">🎂 Birthday</button>
+    <button class="btn-ghost" style="font-size:0.75rem;padding:7px 14px" onclick="switchOccasion('anniversary')">💑 Anniversary</button>
+    <button class="btn-ghost" style="font-size:0.75px;padding:7px 14px;font-size:0.75rem" onclick="switchOccasion('baby_shower')">👶 Baby Shower</button>
+    <button class="btn-ghost" style="font-size:0.75rem;padding:7px 14px" onclick="switchOccasion('proposal')">💍 Proposal</button>
+    <button class="btn-ghost" style="font-size:0.75rem;padding:7px 14px" onclick="switchOccasion('breakup')">💙 Healing</button>
+    <button class="btn-ghost" style="font-size:0.75rem;padding:7px 14px" onclick="switchOccasion('surprise_visit')">🤗 Surprise</button>
+  </div>
+
+  <!-- Products Grid -->
+  <div class="products-grid" id="productsGrid">
+    <!-- Rendered by JS -->
+  </div>
+
+  <!-- Platform Trust Bar -->
+  <div style="margin-top:56px;padding:28px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-lg)">
+    <div style="text-align:center;margin-bottom:20px">
+      <div style="font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase">Platforms We Monitor</div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px">
+      <span class="platform-tag">🟠 Amazon</span>
+      <span class="platform-tag">🔵 Flipkart</span>
+      <span class="platform-tag">🩷 Nykaa</span>
+      <span class="platform-tag">🔴 Myntra</span>
+      <span class="platform-tag">💎 CaratLane</span>
+      <span class="platform-tag">💛 BlueStone</span>
+      <span class="platform-tag">🌸 Tanishq</span>
+      <span class="platform-tag">👶 FirstCry</span>
+      <span class="platform-tag">🌹 Ferns N Petals</span>
+      <span class="platform-tag">🍽️ EazyDiner</span>
+      <span class="platform-tag">🌿 Ugaoo</span>
+      <span class="platform-tag">✋ Etsy India</span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="text-align:center;margin-top:56px;padding:40px;background:linear-gradient(135deg,rgba(74,45,138,0.15),rgba(107,26,58,0.1));border:1px solid rgba(201,168,76,0.15);border-radius:var(--radius-xl)">
+    <div style="font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase;margin-bottom:12px">✦ Not finding what you want?</div>
+    <h3 style="font-family:var(--font-serif);font-size:1.6rem;color:var(--cream);margin-bottom:12px">Refine Your Gift Search</h3>
+    <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:24px">Update preferences to get even more personalised AI recommendations.</p>
+    <button class="btn-primary" onclick="window.location.href='details.html'">
+      ✨ Refine Preferences
+    </button>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-brand">GIFTRA<span style="color:var(--cream-dark)">vault</span></div>
+  <div class="footer-links">
+    <a href="home.html">Home</a>
+    <a href="details.html">Find Gift</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </div>
+  <div class="footer-copy">© 2025 GIFTRAvault · Prices updated every few hours</div>
+</footer>
+
+<style>
+.platform-tag {
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-xl);
+  font-size: 0.8rem;
+  color: var(--cream-dark);
+  font-weight: 500;
+}
+</style>
+
+<script src="app.js"></script>
+<script>
+function switchOccasion(occasion) {
+  localStorage.setItem('giftra_occasion', occasion);
+  // Update stored details
+  const details = JSON.parse(localStorage.getItem('giftra_gift_details') || '{}');
+  details.occasion = occasion;
+  localStorage.setItem('giftra_gift_details', JSON.stringify(details));
+  // Reload products
+  window.location.reload();
+}
+</script>
+</body>
+</html>

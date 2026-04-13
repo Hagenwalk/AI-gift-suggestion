@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIFTRAvault — Recipient Details</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+</head>
+<body>
+
+<div class="bg-texture"></div>
+<div class="particles"></div>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <div class="brand-icon">🎁</div>
+    <span class="brand-name">GIFTRAvault</span>
+  </div>
+  <div class="nav-links">
+    <a href="home.html">Home</a>
+    <a href="details.html" class="active">Find Gift</a>
+    <a href="products.html">Products</a>
+  </div>
+  <div class="nav-actions">
+    <button class="btn-nav-login" onclick="window.location.href='index.html'">Sign In</button>
+  </div>
+</nav>
+
+<!-- ── AI PROCESSING OVERLAY ── -->
+<div class="modal-overlay" id="aiProcessingOverlay">
+  <div style="background:rgba(11,20,38,0.95);border:1px solid rgba(201,168,76,0.2);border-radius:var(--radius-xl);max-width:480px;width:100%;margin:20px">
+    <div class="ai-processing">
+      <div class="ai-processing-ring">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        <div class="ring-center">✨</div>
+      </div>
+
+      <div class="ai-processing-text">Flash AI is thinking…</div>
+      <div class="ai-processing-sub">Curating the perfect gifts just for your loved one</div>
+
+      <div class="ai-steps">
+        <div class="ai-step">
+          <div class="step-dot"></div>
+          Analysing personality & preferences
+        </div>
+        <div class="ai-step">
+          <div class="step-dot"></div>
+          Matching gifts to occasion & budget
+        </div>
+        <div class="ai-step">
+          <div class="step-dot"></div>
+          Comparing prices across 10+ platforms
+        </div>
+        <div class="ai-step">
+          <div class="step-dot"></div>
+          Selecting AI Best Pick recommendations
+        </div>
+        <div class="ai-step">
+          <div class="step-dot"></div>
+          Generating your personalised gift guide
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PAGE CONTENT ── -->
+<div class="details-page">
+
+  <div class="details-header">
+    <div class="section-eyebrow" style="justify-content:center">Tell Us About Your Recipient</div>
+    <h1 class="section-title" style="text-align:center">The More We Know, <em>The Better We Gift</em></h1>
+    <p class="section-subtitle" style="text-align:center;margin:0 auto">
+      Fill in the details below and let our Flash AI curate the most heartfelt, personalised gift recommendations.
+    </p>
+  </div>
+
+  <!-- Progress Steps -->
+  <div class="details-progress">
+    <div class="progress-step active">
+      <div class="step-circle">1</div>
+      <div class="step-label">Basics</div>
+    </div>
+    <div style="width:80px;height:2px;background:rgba(201,168,76,0.2);margin-bottom:20px"></div>
+    <div class="progress-step">
+      <div class="step-circle">2</div>
+      <div class="step-label">Interests</div>
+    </div>
+    <div style="width:80px;height:2px;background:rgba(201,168,76,0.2);margin-bottom:20px"></div>
+    <div class="progress-step">
+      <div class="step-circle">3</div>
+      <div class="step-label">Budget</div>
+    </div>
+    <div style="width:80px;height:2px;background:rgba(201,168,76,0.2);margin-bottom:20px"></div>
+    <div class="progress-step">
+      <div class="step-circle">✨</div>
+      <div class="step-label">Discover</div>
+    </div>
+  </div>
+
+  <!-- Form Card -->
+  <div class="details-form-card">
+    <form id="detailsForm">
+
+      <!-- Section 1: Recipient Info -->
+      <div class="form-section-title">
+        <span>👤</span> Recipient Information
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="recipientName">Recipient's Name</label>
+          <input type="text" id="recipientName" class="form-control" placeholder="e.g., Ananya, Rohan…">
+        </div>
+        <div class="form-group">
+          <label for="recipientAge">Their Age</label>
+          <input type="number" id="recipientAge" class="form-control" placeholder="e.g., 25" min="1" max="100">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="recipientGender">Gender</label>
+          <select id="recipientGender" class="form-control">
+            <option value="">Select gender…</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="non-binary">Non-binary</option>
+            <option value="prefer-not-to-say">Prefer not to say</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="relationship">Your Relationship</label>
+          <select id="relationship" class="form-control">
+            <option value="">Select relationship…</option>
+            <option value="partner">Partner / Spouse</option>
+            <option value="parent">Parent</option>
+            <option value="sibling">Sibling</option>
+            <option value="best_friend">Best Friend</option>
+            <option value="friend">Friend</option>
+            <option value="colleague">Colleague</option>
+            <option value="child">Child</option>
+            <option value="grandparent">Grandparent</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Section 2: Occasion -->
+      <div class="form-section-title" style="margin-top:12px">
+        <span>🎉</span> Occasion Details
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="occasionSelect">What's the Occasion?</label>
+          <select id="occasionSelect" class="form-control" required>
+            <option value="">Select occasion…</option>
+            <option value="birthday">🎂 Birthday</option>
+            <option value="anniversary">💑 Anniversary</option>
+            <option value="baby_shower">👶 Baby Shower</option>
+            <option value="proposal">💍 Proposal</option>
+            <option value="breakup">💙 Break Up / Healing</option>
+            <option value="surprise_visit">🤗 Surprise Visit</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="personality">Their Personality</label>
+          <select id="personality" class="form-control">
+            <option value="">Select personality…</option>
+            <option value="adventurous">🌍 Adventurous & Bold</option>
+            <option value="romantic">💕 Romantic & Sentimental</option>
+            <option value="creative">🎨 Creative & Artistic</option>
+            <option value="practical">⚙️ Practical & Minimalist</option>
+            <option value="luxurious">👑 Loves Luxury</option>
+            <option value="wellness">🌿 Health & Wellness Focused</option>
+            <option value="foodie">🍕 Foodie & Culinary</option>
+            <option value="tech">💻 Tech-Savvy</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Section 3: Interests -->
+      <div class="form-section-title" style="margin-top:12px">
+        <span>💫</span> Their Favourite Interests
+        <span style="font-size:0.72rem;color:var(--text-light);text-transform:none;letter-spacing:0;font-family:var(--font-body);font-weight:400">(Select all that apply)</span>
+      </div>
+
+      <div class="interests-grid" id="interestsGrid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Section 4: Budget -->
+      <div class="form-section-title" style="margin-top:24px">
+        <span>💰</span> Your Budget
+      </div>
+
+      <div class="budget-slider-wrap">
+        <div class="budget-display">
+          <span id="budgetDisplay" class="budget-value">₹2,000</span>
+          <span class="budget-range">₹200 – ₹50,000</span>
+        </div>
+        <input type="range" id="budgetSlider" min="200" max="50000" value="2000" step="100">
+        <div style="display:flex;justify-content:space-between;margin-top:8px">
+          <span style="font-size:0.72rem;color:var(--text-light)">₹200</span>
+          <span style="font-size:0.72rem;color:var(--text-light)">₹50,000</span>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px">
+        <button type="button" class="btn-ghost" style="font-size:0.75rem;text-align:center" onclick="setBudget(500)">₹500</button>
+        <button type="button" class="btn-ghost" style="font-size:0.75rem;text-align:center" onclick="setBudget(1500)">₹1,500</button>
+        <button type="button" class="btn-ghost" style="font-size:0.75rem;text-align:center" onclick="setBudget(3000)">₹3,000</button>
+        <button type="button" class="btn-ghost" style="font-size:0.75rem;text-align:center" onclick="setBudget(10000)">₹10,000+</button>
+      </div>
+
+      <!-- Section 5: Additional Note -->
+      <div class="form-section-title" style="margin-top:24px">
+        <span>📝</span> Anything Else We Should Know?
+        <span style="font-size:0.72rem;color:var(--text-light);text-transform:none;letter-spacing:0;font-family:var(--font-body);font-weight:400">(Optional)</span>
+      </div>
+
+      <div class="form-group">
+        <textarea id="additionalNote" class="form-control" rows="3"
+          placeholder="e.g., She loves vintage aesthetics, he's into coffee brewing, they just moved to a new home…"
+          style="resize:vertical;min-height:80px;line-height:1.6"></textarea>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="analyze-btn">
+        <span style="font-size:1.1rem">✨</span>
+        Analyse & Find My Perfect Gift
+        <span style="font-size:1.1rem">🎁</span>
+      </button>
+
+      <p style="text-align:center;font-size:0.76rem;color:var(--text-light);margin-top:16px">
+        Powered by Flash AI · Your data is private & secure · Takes ~5 seconds
+      </p>
+    </form>
+  </div>
+
+  <!-- Navigation -->
+  <div style="display:flex;justify-content:center;gap:16px;margin-top:28px;flex-wrap:wrap">
+    <button class="btn-ghost" data-back="home.html">
+      ← Back to Home
+    </button>
+    <button class="btn-ghost" onclick="window.location.href='products.html'">
+      Browse All Gifts →
+    </button>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-brand">GIFTRA<span style="color:var(--cream-dark)">vault</span></div>
+  <div class="footer-copy">© 2025 GIFTRAvault · All rights reserved</div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+function setBudget(val) {
+  const slider = document.getElementById('budgetSlider');
+  const display = document.getElementById('budgetDisplay');
+  if (slider && display) {
+    slider.value = val;
+    display.textContent = '₹' + Number(val).toLocaleString('en-IN');
+  }
+}
+</script>
+</body>
+</html>

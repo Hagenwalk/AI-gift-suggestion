@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIFTRAvault — Find the Perfect Gift</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+</head>
+<body>
+
+<div class="bg-texture"></div>
+<div class="particles"></div>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <div class="brand-icon">🎁</div>
+    <span class="brand-name">GIFTRAvault</span>
+  </div>
+  <div class="nav-links">
+    <a href="home.html" class="active">Home</a>
+    <a href="details.html">Find Gift</a>
+    <a href="products.html">Products</a>
+    <a href="#features">How It Works</a>
+    <a href="#about">About</a>
+  </div>
+  <div class="nav-actions">
+    <button class="btn-nav-login" onclick="window.location.href='details.html'">Find Gift ✨</button>
+    <div class="user-avatar" data-logout title="Sign out">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:grid;place-items:center;font-size:14px;font-weight:700;color:var(--navy)">U</div>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span style="width:8px;height:8px;background:var(--gold);border-radius:50%;animation:ai-pulse-anim 2s infinite"></span>
+      AI-Powered Gift Intelligence
+    </div>
+
+    <h1 class="hero-title">
+      Every Gift,
+      <em class="accent">Perfectly Chosen</em>
+    </h1>
+
+    <p class="hero-desc">
+      Our AI analyses your loved one's personality, preferences, and occasion to curate the most heartfelt gifts — then compares prices across 10+ platforms to find you the very best deal.
+    </p>
+
+    <div class="hero-actions">
+      <button class="btn-primary" id="startBtn" onclick="window.location.href='details.html'">
+        🎁 Find Perfect Gift
+      </button>
+      <button class="btn-secondary" onclick="document.getElementById('occasionsSection').scrollIntoView({behavior:'smooth'})">
+        Browse Occasions
+      </button>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num" data-target="50" data-suffix="K+">50K+</div>
+        <div class="stat-label">Happy Gifters</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="200" data-suffix="+">200+</div>
+        <div class="stat-label">Curated Gifts</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="10" data-suffix="+">10+</div>
+        <div class="stat-label">Platforms</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="98" data-suffix="%">98%</div>
+        <div class="stat-label">Satisfaction</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative gift visualization -->
+  <div class="hero-float">
+    <div class="hero-gift-viz">
+      <div class="gift-circle"></div>
+      <div class="gift-circle"></div>
+      <div class="gift-circle"></div>
+      <div class="gift-center">🎁</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     OCCASIONS
+     ══════════════════════════════════════════ -->
+<section class="occasions-section" id="occasionsSection">
+  <div style="text-align:center;margin-bottom:0">
+    <div class="section-eyebrow">Choose Your Occasion</div>
+    <h2 class="section-title">Every Moment <em>Deserves</em> a Gift</h2>
+    <p class="section-subtitle" style="margin:0 auto">
+      From joyful celebrations to healing gestures — we have the perfect gift idea for every chapter of life.
+    </p>
+  </div>
+
+  <div class="occasions-grid stagger-children" id="occasionsGrid">
+    <!-- Rendered by JS -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     AI FEATURE
+     ══════════════════════════════════════════ -->
+<section class="ai-section" id="features">
+  <div class="ai-feature-card">
+    <div>
+      <div class="ai-badge-wrap">
+        <div class="ai-pulse"></div>
+        <span class="badge badge-ai">AI-Powered</span>
+      </div>
+
+      <h2 class="ai-title">Flash AI Gift Intelligence</h2>
+      <p class="ai-desc">
+        Like having a personal stylist and price detective in one. Our AI analyses personality, occasion, and preferences — then scours Amazon, Flipkart, Nykaa, and 7 more platforms to find the best gift at the best price.
+      </p>
+
+      <div class="ai-features-list">
+        <div class="ai-feature-item">
+          <div class="check-icon">✓</div>
+          <span>Personalised gift curation based on age, gender & interests</span>
+        </div>
+        <div class="ai-feature-item">
+          <div class="check-icon">✓</div>
+          <span>Real-time price comparison across 10+ e-commerce platforms</span>
+        </div>
+        <div class="ai-feature-item">
+          <div class="check-icon">✓</div>
+          <span>AI Best Pick badge highlights the highest-value recommendation</span>
+        </div>
+        <div class="ai-feature-item">
+          <div class="check-icon">✓</div>
+          <span>Direct purchase links with verified discount tracking</span>
+        </div>
+        <div class="ai-feature-item">
+          <div class="check-icon">✓</div>
+          <span>Emotional intelligence for sensitive occasions like breakups</span>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="window.location.href='details.html'">
+        🤖 Try AI Gift Finder
+      </button>
+    </div>
+
+    <div class="ai-visual">
+      <div class="ai-card-stack">
+        <div class="ai-mock-card">
+          <div class="ai-mock-header">
+            <span class="ai-mock-title">PLATFORM SCAN</span>
+            <span class="badge badge-ai" style="font-size:0.6rem;padding:3px 8px">LIVE</span>
+          </div>
+          <div class="ai-price-compare">
+            <div class="price-row">
+              <span class="price-platform">Amazon</span>
+              <span class="price-value">₹2,499</span>
+            </div>
+          </div>
+        </div>
+        <div class="ai-mock-card">
+          <div class="ai-mock-header">
+            <span class="ai-mock-title">COMPARING…</span>
+          </div>
+          <div class="ai-price-compare">
+            <div class="price-row">
+              <span class="price-platform">Flipkart</span>
+              <span class="price-value">₹2,799</span>
+            </div>
+            <div class="price-row">
+              <span class="price-platform">Nykaa</span>
+              <span class="price-value">₹2,999</span>
+            </div>
+          </div>
+        </div>
+        <div class="ai-mock-card">
+          <div class="ai-mock-header">
+            <span class="ai-mock-title">✦ AI BEST PICK FOUND</span>
+            <span class="badge badge-best" style="font-size:0.6rem;padding:3px 8px">-28%</span>
+          </div>
+          <div class="ai-price-compare">
+            <div class="price-row best">
+              <span class="price-platform">Amazon</span>
+              <span class="price-value">₹2,499 ✓</span>
+            </div>
+            <div class="price-row">
+              <span class="price-platform">Nykaa</span>
+              <span class="price-value">₹2,999</span>
+            </div>
+            <div class="price-row">
+              <span class="price-platform">Myntra</span>
+              <span class="price-value">₹3,200</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     HOW IT WORKS
+     ══════════════════════════════════════════ -->
+<section style="padding:80px 6vw;position:relative;z-index:1" id="about">
+  <div style="text-align:center;margin-bottom:56px">
+    <div class="section-eyebrow">Simple & Elegant</div>
+    <h2 class="section-title">How It <em>Works</em></h2>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;max-width:900px;margin:0 auto">
+    <div class="glass-card" style="padding:32px 24px;text-align:center">
+      <div style="font-size:48px;margin-bottom:16px">👤</div>
+      <div style="font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;text-transform:uppercase">Step 1</div>
+      <div style="font-family:var(--font-serif);font-size:1.15rem;color:var(--cream);margin-bottom:10px">Tell Us About Them</div>
+      <div style="font-size:0.82rem;color:var(--text-light);line-height:1.6">Share the recipient's age, occasion, interests, and your budget.</div>
+    </div>
+    <div class="glass-card" style="padding:32px 24px;text-align:center">
+      <div style="font-size:48px;margin-bottom:16px">🤖</div>
+      <div style="font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;text-transform:uppercase">Step 2</div>
+      <div style="font-family:var(--font-serif);font-size:1.15rem;color:var(--cream);margin-bottom:10px">AI Analyses & Curates</div>
+      <div style="font-size:0.82rem;color:var(--text-light);line-height:1.6">Our Flash AI generates personalised suggestions tailored to their personality.</div>
+    </div>
+    <div class="glass-card" style="padding:32px 24px;text-align:center">
+      <div style="font-size:48px;margin-bottom:16px">📊</div>
+      <div style="font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;text-transform:uppercase">Step 3</div>
+      <div style="font-family:var(--font-serif);font-size:1.15rem;color:var(--cream);margin-bottom:10px">Compare Best Prices</div>
+      <div style="font-size:0.82rem;color:var(--text-light);line-height:1.6">Prices checked across Amazon, Flipkart, Nykaa, Myntra & more in real-time.</div>
+    </div>
+    <div class="glass-card" style="padding:32px 24px;text-align:center">
+      <div style="font-size:48px;margin-bottom:16px">🛒</div>
+      <div style="font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;text-transform:uppercase">Step 4</div>
+      <div style="font-family:var(--font-serif);font-size:1.15rem;color:var(--cream);margin-bottom:10px">Gift with Confidence</div>
+      <div style="font-size:0.82rem;color:var(--text-light);line-height:1.6">Click directly to buy from the platform offering the best price. Done!</div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:48px">
+    <button class="btn-primary" onclick="window.location.href='details.html'">
+      Start Now — It's Free ✨
+    </button>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     TESTIMONIALS
+     ══════════════════════════════════════════ -->
+<section style="padding:60px 6vw 80px;position:relative;z-index:1">
+  <div style="text-align:center;margin-bottom:40px">
+    <div class="section-eyebrow">Real Stories</div>
+    <h2 class="section-title">Gifted with <em>Love</em></h2>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:960px;margin:0 auto">
+    <div class="glass-card" style="padding:28px">
+      <div style="display:flex;gap:4px;margin-bottom:12px">⭐⭐⭐⭐⭐</div>
+      <p style="font-family:var(--font-serif);font-size:1.02rem;color:var(--cream-dark);line-height:1.65;margin-bottom:16px;font-style:italic">"GIFTRAvault found the perfect anniversary gift for my wife and saved me ₹800 by comparing prices across platforms. Absolutely magical!"</p>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:grid;place-items:center;font-size:14px;font-weight:700;color:var(--navy)">R</div>
+        <div>
+          <div style="font-size:0.85rem;color:var(--cream);font-weight:600">Rahul M.</div>
+          <div style="font-size:0.72rem;color:var(--text-light)">Mumbai · Anniversary Gift</div>
+        </div>
+      </div>
+    </div>
+    <div class="glass-card" style="padding:28px">
+      <div style="display:flex;gap:4px;margin-bottom:12px">⭐⭐⭐⭐⭐</div>
+      <p style="font-family:var(--font-serif);font-size:1.02rem;color:var(--cream-dark);line-height:1.65;margin-bottom:16px;font-style:italic">"I was clueless for my best friend's baby shower. The AI suggested an organic hamper that the new mom absolutely loved. 10/10!"</p>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#4F46E5);display:grid;place-items:center;font-size:14px;font-weight:700;color:white">P</div>
+        <div>
+          <div style="font-size:0.85rem;color:var(--cream);font-weight:600">Priya S.</div>
+          <div style="font-size:0.72rem;color:var(--text-light)">Bangalore · Baby Shower</div>
+        </div>
+      </div>
+    </div>
+    <div class="glass-card" style="padding:28px">
+      <div style="display:flex;gap:4px;margin-bottom:12px">⭐⭐⭐⭐⭐</div>
+      <p style="font-family:var(--font-serif);font-size:1.02rem;color:var(--cream-dark);line-height:1.65;margin-bottom:16px;font-style:italic">"Used it for a proposal setup. The AI even suggested the perfect ring at the best price from CaratLane. She said YES! 💍"</p>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#059669,#10B981);display:grid;place-items:center;font-size:14px;font-weight:700;color:white">A</div>
+        <div>
+          <div style="font-size:0.85rem;color:var(--cream);font-weight:600">Arjun K.</div>
+          <div style="font-size:0.72rem;color:var(--text-light)">Chennai · Proposal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-brand">GIFTRA<span style="color:var(--cream-dark)">vault</span></div>
+  <div class="footer-links">
+    <a href="home.html">Home</a>
+    <a href="details.html">Find Gift</a>
+    <a href="products.html">Products</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </div>
+  <div class="footer-copy">© 2025 GIFTRAvault · AI-Powered Gift Curation</div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
