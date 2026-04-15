@@ -1,5 +1,5 @@
 /* ==========================================
-   GIFTRAvault - Main Application JS
+   SUSPENSE - Main Application JS
    AI-Powered Gift Recommendation Engine
    ========================================== */
 
